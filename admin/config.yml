@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main # 你的 GitHub 主分支名稱
+  # 如果你不使用 Netlify，改為 name: github, repo: your-name/your-repo
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+# 這裡設定 CMS 如何顯示在瀏覽器分頁
+site_url: "https://your-site.github.io"
+display_url: "https://your-site.github.io"
+logo_url: "https://your-site.github.io/assets/images/logo.png"
+
+# 定義內容結構
+collections:
+  - name: "settings"
+    label: "網站內容管理"
+    files:
+      - name: "data"
+        label: "全站資料庫 (content.json)"
+        file: "data/content.json"
+        fields:
+          # 1. 網站全域設定
+          - label: "全域設定"
+            name: "config"
+            widget: "object"
+            fields:
+              - {label: "網站名稱", name: "siteName", widget: "string"}
+              - {label: "Banner 標題", name: "heroTitle", widget: "string"}
+              - {label: "Banner 副標題", name: "heroSubtitle", widget: "string"}
+              - {label: "關於我文字", name: "aboutText", widget: "text"}
+              - {label: "贊助連結", name: "sponsorLink", widget: "string"}
+
+          # 2. 文章管理 (List Widget 允許你新增/刪除陣列中的物件)
+          - label: "文章列表"
+            name: "articles"
+            widget: "list"
+            fields:
+              - {label: "ID (唯一)", name: "id", widget: "string", default: "art-{{slug}}"}
+              - {label: "標題", name: "title", widget: "string"}
+              - {label: "分類", name: "category", widget: "select", options: ["產業觀察", "程式開發", "數據視覺化", "其他"]}
+              - {label: "發布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "是否置頂", name: "pinned", widget: "boolean", default: false}
+              - {label: "瀏覽數 (初始)", name: "views", widget: "number", default: 0}
+              - {label: "摘要", name: "summary", widget: "text"}
+              - {label: "內容 (HTML)", name: "content", widget: "markdown"} 
+              - {label: "標籤", name: "tags", widget: "list", field: {widget: "string"}}
+
+          # 3. 數據儀表板管理
+          - label: "數據儀表板"
+            name: "dashboards"
+            widget: "list"
+            fields:
+              - {label: "標題", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "string"}
+              - {label: "連結", name: "link", widget: "string"}
+              - {label: "縮圖", name: "image", widget: "image"}
+
+          # 4. 工具管理
+          - label: "實用工具"
+            name: "tools"
+            widget: "list"
+            fields:
+              - {label: "工具名稱", name: "name", widget: "string"}
+              - {label: "圖示代碼 (FontAwesome)", name: "icon", widget: "string", default: "fa-tools"}
+              - {label: "描述", name: "description", widget: "string"}
+              - {label: "工具連結", name: "link", widget: "string"}

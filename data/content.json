@@ -1,0 +1,61 @@
+{
+  "config": {
+    "siteName": "Data Insight",
+    "heroTitle": "數據驅動決策，創意引領未來",
+    "heroSubtitle": "探索數據視覺化、行銷科技與程式開發的交會點",
+    "aboutText": "我是一名專注於數據分析與視覺化的數位工作者。這裡是我紀錄產業觀察與技術實驗的空間。",
+    "sponsorLink": "https://buymeacoffee.com/yourname"
+  },
+  "articles": [
+    {
+      "id": "art-001",
+      "title": "2025 數位行銷數據趨勢報告",
+      "category": "產業觀察",
+      "date": "2025-03-15",
+      "summary": "深度解析 Cookie 消失後的追蹤技術與 AI 在行銷自動化中的應用場景。",
+      "content": "<h3>AI 驅動的未來</h3><p>在這篇文章中，我們探討了 LLM 如何改變行銷文案的生成...</p>",
+      "views": 1250,
+      "pinned": true,
+      "tags": ["AI", "Marketing"]
+    },
+    {
+      "id": "art-002",
+      "title": "D3.js 實戰：從零打造互動式桑基圖",
+      "category": "數據視覺化",
+      "date": "2025-02-20",
+      "summary": "不需要複雜的 BI 工具，用原生 JavaScript 也能畫出高品質的流量流向圖。",
+      "content": "<p>D3.js 的核心在於 Data Join...</p>",
+      "views": 890,
+      "pinned": false,
+      "tags": ["D3.js", "Coding"]
+    }
+  ],
+  "dashboards": [
+    {
+      "title": "電商轉換漏斗即時監控",
+      "description": "呈現使用者從進站到結帳的流失率分析",
+      "image": "assets/images/dashboard1.jpg",
+      "link": "#"
+    },
+    {
+      "title": "社群聲量熱力圖",
+      "description": "追蹤特定關鍵字在不同時段的討論熱度",
+      "image": "assets/images/dashboard2.jpg",
+      "link": "#"
+    }
+  ],
+  "tools": [
+    {
+      "name": "UTM 網址產生器",
+      "icon": "fa-link",
+      "description": "標準化你的行銷追蹤參數，支援縮網址整合。",
+      "link": "tools/utm-builder.html"
+    },
+    {
+      "name": "JSON 格式化工具",
+      "icon": "fa-code",
+      "description": "瀏覽器端的隱私安全格式化與驗證器。",
+      "link": "tools/json-format.html"
+    }
+  ]
+}

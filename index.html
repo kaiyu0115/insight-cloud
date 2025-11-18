@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="專注於數據分析、產業觀察與視覺化的專業個人網站。提供實用行銷工具與數據觀點。">
+    <meta name="author" content="您的名字">
+    <!-- 禁止快取，確保 CMS 更新後前台能看到最新內容 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>Data Insight | 數據分析與產業觀察</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Data Insight | 數據分析與產業觀察">
+    <meta property="og:image" content="assets/images/og-default.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Custom CSS (New Path) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Data Insight <span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#articles">觀點</a></li>
+            <li><a href="#data-zone">數據</a></li>
+            <li><a href="#tools">工具</a></li>
+            <li><a href="#about">關於</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="搜尋關鍵字...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">數據驅動決策<br>創意引領未來</h1>
+            <p id="hero-subtitle">探索數據視覺化、行銷科技與程式開發的交會點</p>
+            <div class="hero-buttons">
+                <a href="#articles" class="btn primary">閱讀最新文章</a>
+                <a href="#support" class="btn secondary">贊助支持</a>
+            </div>
+        </div>
+        <div id="hero-viz" class="hero-viz">
+            <!-- D3.js Canvas Container -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Pinned / Hot Section -->
+        <section class="container" id="recommendations">
+            <h2><i class="fas fa-fire" style="color: #e25822;"></i> 熱門與精選</h2>
+            <div class="grid-wrapper" id="top-posts-container">
+                <div class="loading-spinner">載入中...</div>
+            </div>
+        </section>
+
+        <!-- Ad Slot -->
+        <div class="ad-banner-container">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-slot" id="ad-slot-1">
+                <!-- Google AdSense script will go here -->
+                <div class="ad-placeholder">Google Ads / 贊助商區塊</div>
+            </div>
+        </div>
+
+        <!-- Articles Section -->
+        <section class="container" id="articles">
+            <div class="section-header">
+                <h2>最新觀點</h2>
+                <div class="filters" id="category-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <!-- Categories will be dynamic -->
+                </div>
+            </div>
+            <div class="article-list" id="article-list">
+                <!-- Dynamic Content -->
+            </div>
+            <div id="pagination" class="pagination hidden">
+                <button class="btn small">載入更多</button>
+            </div>
+        </section>
+
+        <!-- Data Zone -->
+        <section class="dark-section" id="data-zone">
+            <div class="container">
+                <h2>數據實驗室</h2>
+                <p>互動式儀表板與資料視覺化作品集</p>
+                <div class="dashboard-grid" id="dashboard-container">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="container" id="tools">
+            <h2>實用工具箱</h2>
+            <div class="tools-grid" id="tools-container">
+                <!-- Dynamic Content -->
+            </div>
+        </section>
+
+        <!-- About & Contact -->
+        <section class="container" id="about">
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <h2 id="about-title">關於我</h2>
+                    <div id="about-text">
+                        <p>載入中...</p>
+                    </div>
+                    <div class="support-box" id="support">
+                        <h3><i class="fas fa-coffee"></i> 喜歡我的內容？</h3>
+                        <p>您的支持將幫助伺服器運作與內容產出。</p>
+                        <a href="#" class="btn primary" id="sponsor-link">Buy me a coffee</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year">2025</span> Data Insight. | <a href="admin/">Admin Login</a></p>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-banner" class="cookie-banner hidden">
+        <div class="cookie-content">
+            <p>本網站使用 Cookie 進行流量分析與使用者體驗優化。繼續使用即代表您同意。</p>
+            <div class="cookie-actions">
+                <button id="accept-cookie" class="btn small primary">同意</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anti-Copy Modal -->
+    <div id="copy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3><i class="fas fa-quote-left"></i> 引用提示</h3>
+            <p>感謝您對內容的喜愛！本站內容受版權保護。</p>
+            <p class="modal-note">若需引用，請複製下方連結或贊助作者：</p>
+            <div class="citation-box" id="citation-text"></div>
+            <div class="modal-actions">
+                <button class="btn secondary" id="copy-citation-btn">複製引用來源</button>
+                <a href="#support" class="btn primary">贊助支持</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Logic (New Path) -->
+    <script src="js/main.js"></script>
+</body>
+</html>
