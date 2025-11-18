@@ -44,7 +44,8 @@ collections:
               - {label: "瀏覽數 (初始)", name: "views", widget: "number", default: 0}
               - {label: "摘要", name: "summary", widget: "text"}
               - {label: "內容 (HTML)", name: "content", widget: "markdown"} 
-              - {label: "標籤", name: "tags", widget: "list", field: {widget: "string"}}
+              # 修正：List widget 中的單一 field 必須包含 name 屬性，即使是 string
+              - {label: "標籤", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
 
           # 3. 數據儀表板管理
           - label: "數據儀表板"
